@@ -13,7 +13,48 @@
   </head>
   <body>
     <header>My Library</header>
+    <div class="add-container">
+      <button class="add" id="add">Add Book</button>
+    </div>
     <div class="books" id="books"></div>
+    <div class="form-container" id="addForm">
+      <form class="form">
+        <div class="form-title">Add a new book</div>
+        <div class="book-details">
+          <div class="input-box">
+            <span class="details">Title</span>
+            <input type="text" placeholder="Enter the title" />
+          </div>
+          <div class="input-box">
+            <span class="details">Author</span>
+            <input type="text" placeholder="Enter the author" />
+          </div>
+          <div class="input-box">
+            <span class="details">Pages</span>
+            <input type="text" placeholder="Enter the number of pages" />
+          </div>
+        </div>
+        <div class="read-checkbox">
+          <input type="radio" name="read-submit" id="dot-1" />
+          <input type="radio" name="read-submit" id="dot-2" />
+          <span class="read-title">Have you read it?</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="read-submit">Yes</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="read-submit">No</span>
+            </label>
+          </div>
+        </div>
+        <div class="submit-buttons">
+          <button>Add</button>
+          <button>Cancel</button>
+        </div>
+      </form>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>

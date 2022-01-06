@@ -8,15 +8,35 @@
 
 header {
   text-align: center;
-  margin-top: 50px;
+  margin: 1.5em;
   font-size: 3em;
+}
+
+.add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add {
+  background-color: rgb(126, 132, 163);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5%;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
 }
 
 .books {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 7em;
   height: 50vh;
   background-color: rgb(226, 207, 181);
 }
@@ -26,8 +46,159 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin: 5px;
+  text-align: center;
+  margin: 12px;
   width: 30vh;
   height: 40vh;
   border-radius: 2%;
+  box-shadow: 8px 8px 2px rgb(143, 143, 145);
+}
+
+.read {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  position: absolute;
+  z-index: 9;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 21%;
+}
+
+.form {
+  padding: 1em 6em 4em 6em;
+  border-radius: 10px;
+}
+
+.form div {
+  margin-left: -2.5em;
+}
+
+.form-title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.form-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: rgb(126, 132, 163);
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.input-box {
+  width: 100%;
+  margin: 15px 0 8px 0;
+}
+
+.details {
+  font-weight: 800;
+  margin-bottom: 5x;
+  display: block;
+}
+
+.input-box input {
+  height: 40px;
+  width: 180%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 15px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.checkbox {
+  height: 5px;
+  width: 50%;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: rgb(126, 132, 163);
+}
+
+.read-title {
+  font-weight: 800;
+  margin-left: -2.5em;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0;
+}
+
+.read-checkbox .category label {
+  display: flex;
+  align-items: center;
+}
+
+.read-checkbox .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category .one,
+#dot-2:checked ~ .category .two {
+  border-color: #d9d9d9;
+  background: rgb(126, 132, 163);
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+form .submit-buttons {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 4px;
+  margin-top: 25px;
+}
+
+form .submit-buttons button {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(158, 145, 126);
+  cursor: pointer;
 }
