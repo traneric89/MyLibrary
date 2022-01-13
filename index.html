@@ -12,26 +12,32 @@
     <title>Library</title>
   </head>
   <body>
-    <header>My Library</header>
-    <div class="add-container">
-      <button class="add" id="add">Add Book</button>
+    <div class="overlay" id="overlay">
+      <header>My Library</header>
+      <div class="add-container">
+        <button class="add" id="add">Add Book</button>
+      </div>
+      <div class="books" id="books"></div>
     </div>
-    <div class="books" id="books"></div>
     <div class="form-container" id="addForm">
       <form class="form">
         <div class="form-title">Add a new book</div>
         <div class="book-details">
           <div class="input-box">
             <span class="details">Title</span>
-            <input type="text" placeholder="Enter the title" />
+            <input id="bookTitle" type="text" placeholder="Enter the title" />
           </div>
           <div class="input-box">
             <span class="details">Author</span>
-            <input type="text" placeholder="Enter the author" />
+            <input id="bookAuthor" type="text" placeholder="Enter the author" />
           </div>
           <div class="input-box">
             <span class="details">Pages</span>
-            <input type="text" placeholder="Enter the number of pages" />
+            <input
+              id="bookPages"
+              type="text"
+              placeholder="Enter the number of pages"
+            />
           </div>
         </div>
         <div class="read-checkbox">
@@ -50,8 +56,8 @@
           </div>
         </div>
         <div class="submit-buttons">
-          <button>Add</button>
-          <button>Cancel</button>
+          <button id="confirmAdd">Add</button>
+          <button id="confirmCancel">Cancel</button>
         </div>
       </form>
     </div>

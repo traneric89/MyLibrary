@@ -1,7 +1,60 @@
-const addButton = document.getElementById("add");
+//BUTTON VARIABLES
+const addButton = document.getElementById("add"); //Add book button to show pop up form to add book to library
+const confirmAdd = document.getElementById("confirmAdd"); //Confirm add button for form
+const confirmCancel = document.getElementById("confirmCancel"); //Cancel button to get out of form
+const addForm = document.getElementById("addForm");
+const overlay = document.getElementById("overlay");
+
+//INPUT FORM VARIABLES
+let bookTitle = document.getElementById("bookTitle");
+let bookAuthor = document.getElementById("bookAuthor");
+let bookPages = document.getElementById("bookPages");
+let readYes = document.getElementById("dot-1");
+let readNo = document.getElementById("dot-2");
+
+confirmCancel.addEventListener("click", (event) => {
+  addForm.style.zIndex = "4";
+  overlay.style.opacity = "1";
+  event.preventDefault();
+});
+
+confirmAdd.addEventListener("click", (event) => {
+  checkForm();
+  event.preventDefault();
+});
+
+const checkForm = () => {
+  if (
+    bookTitle.value == "" ||
+    bookAuthor.value == "" ||
+    bookPages.value == "" ||
+    (readYes == "" && readNo == "")
+  ) {
+    alert("Please fill out book info");
+  } else if (readYes != "") {
+    addBookToLibrary(
+      bookTitle.value,
+      bookAuthor.value,
+      bookPages.value,
+      readYes.value
+    );
+    addForm.style.zIndex = "4";
+    overlay.style.opacity = "1";
+  } else {
+    addBookToLibrary(
+      bookTitle.value,
+      bookAuthor.value,
+      bookPages.value,
+      readNo.value
+    );
+    addForm.style.zIndex = "4";
+    overlay.style.opacity = "1";
+  }
+};
 
 addButton.addEventListener("click", () => {
-  console.log(myLibrary);
+  addForm.style.zIndex = "6";
+  overlay.style.opacity = "0.3";
 });
 
 let myLibrary = [];
@@ -25,6 +78,7 @@ const readStatus = () => {
   console.log("button working");
 };
 
+const renderScreen = () => {};
 myLibrary.forEach((book) => {
   let newDiv = document.createElement("div");
   newDiv.className = "book";
@@ -60,7 +114,3 @@ myLibrary.forEach((book) => {
   author.innerHTML = myLibrary[index].author;
   pages.innerHTML = myLibrary[index].pages;
 });
-
-// const readStatus = () => {
-//   console.log("button working");
-// };
