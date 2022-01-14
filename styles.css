@@ -80,6 +80,28 @@ header {
   cursor: pointer;
 }
 
+.deleteBook {
+  background-color: dodgerblue;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+i {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.bookButtons button {
+  margin: 5px;
+}
+
 .form-container {
   display: flex;
   justify-content: center;

@@ -5,6 +5,8 @@ const confirmCancel = document.getElementById("confirmCancel"); //Cancel button 
 const addForm = document.getElementById("addForm");
 const overlay = document.getElementById("overlay");
 
+const form = document.getElementById("form");
+
 //INPUT FORM VARIABLES
 let bookTitle = document.getElementById("bookTitle");
 let bookAuthor = document.getElementById("bookAuthor");
@@ -16,11 +18,13 @@ confirmCancel.addEventListener("click", (event) => {
   addForm.style.zIndex = "4";
   overlay.style.opacity = "1";
   event.preventDefault();
+  form.reset();
 });
 
 confirmAdd.addEventListener("click", (event) => {
   checkForm();
   event.preventDefault();
+  form.reset();
 });
 
 const checkForm = () => {
@@ -28,25 +32,15 @@ const checkForm = () => {
     bookTitle.value == "" ||
     bookAuthor.value == "" ||
     bookPages.value == "" ||
-    (readYes == "" && readNo == "")
+    (readYes.value == "" && readNo.value == "")
   ) {
     alert("Please fill out book info");
-  } else if (readYes != "") {
-    addBookToLibrary(
-      bookTitle.value,
-      bookAuthor.value,
-      bookPages.value,
-      readYes.value
-    );
+  } else if (readYes.checked) {
+    addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, "Yes");
     addForm.style.zIndex = "4";
     overlay.style.opacity = "1";
   } else {
-    addBookToLibrary(
-      bookTitle.value,
-      bookAuthor.value,
-      bookPages.value,
-      readNo.value
-    );
+    addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, "No");
     addForm.style.zIndex = "4";
     overlay.style.opacity = "1";
   }
@@ -69,48 +63,64 @@ function Book(title, author, pages, read) {
 const addBookToLibrary = (title, author, pages, read) => {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+  renderScreen(newBook);
 };
-
-addBookToLibrary("Harry Potter", "J.K. Rowling", "1024", "Yes");
-addBookToLibrary("Percy Jackson", "Rick Riordan", "675", "No");
 
 const readStatus = () => {
   console.log("button working");
 };
 
-const renderScreen = () => {};
-myLibrary.forEach((book) => {
-  let newDiv = document.createElement("div");
-  newDiv.className = "book";
-  newDiv.setAttribute("id", "book");
-
+const renderScreen = (book) => {
   let library = document.getElementById("books");
-  library.appendChild(newDiv);
+  library.innerHTML = "";
+  myLibrary.forEach((book) => {
+    let newDiv = document.createElement("div");
+    newDiv.className = "book";
+    newDiv.setAttribute("id", "book");
 
-  let index = myLibrary.indexOf(book);
+    let library = document.getElementById("books");
+    library.appendChild(newDiv);
 
-  let title = document.createElement("h1");
-  let author = document.createElement("h2");
-  let pages = document.createElement("h2");
+    let index = myLibrary.indexOf(book);
 
-  let read = document.createElement("button");
-  read.className = "read";
-  //read.onclick = readStatus;
-  read.addEventListener = ("click", () => readStatus());
+    let title = document.createElement("h1");
+    let author = document.createElement("h2");
+    let pages = document.createElement("h2");
 
-  if (myLibrary[index].read === "Yes") {
-    read.innerHTML = "Read";
-  } else {
-    read.innerHTML = "Not Read";
-    read.style.backgroundColor = "#f44336";
-  }
+    let bookButtons = document.createElement("div");
+    bookButtons.className = "bookButtons";
 
-  newDiv.appendChild(title);
-  newDiv.appendChild(author);
-  newDiv.appendChild(pages);
-  newDiv.appendChild(read);
+    let read = document.createElement("button");
+    read.className = "read";
+    //read.onclick = readStatus;
+    read.addEventListener = ("click", () => readStatus());
 
-  title.innerHTML = myLibrary[index].title;
-  author.innerHTML = myLibrary[index].author;
-  pages.innerHTML = myLibrary[index].pages;
-});
+    let deleteBook = document.createElement("button");
+    deleteBook.className = "deleteBook";
+
+    let deleteIcon = document.createElement("i");
+    deleteIcon.className = "fa fa-trash";
+
+    if (myLibrary[index].read === "Yes") {
+      read.innerHTML = "Read";
+    } else {
+      read.innerHTML = "Not Read";
+      read.style.backgroundColor = "#f44336";
+    }
+
+    newDiv.appendChild(title);
+    newDiv.appendChild(author);
+    newDiv.appendChild(pages);
+    newDiv.appendChild(bookButtons);
+    bookButtons.appendChild(read);
+    bookButtons.appendChild(deleteBook);
+    deleteBook.appendChild(deleteIcon);
+
+    title.innerHTML = myLibrary[index].title;
+    author.innerHTML = myLibrary[index].author;
+    pages.innerHTML = myLibrary[index].pages;
+  });
+};
+
+// READ STATUS CHANGE BY CLICKING BUTTON ADD FUNCTIONALITY
+// DELETE BOOK FROM LIBRARY ADD FUNCTIONALITY
