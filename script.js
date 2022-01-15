@@ -66,10 +66,6 @@ const addBookToLibrary = (title, author, pages, read) => {
   renderScreen(newBook);
 };
 
-const readStatus = () => {
-  console.log("button working");
-};
-
 const renderScreen = (book) => {
   let library = document.getElementById("books");
   library.innerHTML = "";
@@ -92,8 +88,6 @@ const renderScreen = (book) => {
 
     let read = document.createElement("button");
     read.className = "read";
-    //read.onclick = readStatus;
-    read.addEventListener = ("click", () => readStatus());
 
     let deleteBook = document.createElement("button");
     deleteBook.className = "deleteBook";
@@ -108,6 +102,21 @@ const renderScreen = (book) => {
       read.style.backgroundColor = "#f44336";
     }
 
+    read.addEventListener("click", function () {
+      if (this.innerHTML == "Read") {
+        this.innerHTML = "Not Read";
+        this.style.backgroundColor = "#f44336";
+      } else if (this.innerHTML == "Not Read") {
+        this.innerHTML = "Read";
+        this.style.backgroundColor = "#4caf50";
+      }
+    });
+
+    deleteBook.addEventListener("click", function () {
+      myLibrary.splice(index, 1);
+      renderScreen();
+    });
+
     newDiv.appendChild(title);
     newDiv.appendChild(author);
     newDiv.appendChild(pages);
@@ -118,9 +127,6 @@ const renderScreen = (book) => {
 
     title.innerHTML = myLibrary[index].title;
     author.innerHTML = myLibrary[index].author;
-    pages.innerHTML = myLibrary[index].pages;
+    pages.innerHTML = myLibrary[index].pages + " pages";
   });
 };
-
-// READ STATUS CHANGE BY CLICKING BUTTON ADD FUNCTIONALITY
-// DELETE BOOK FROM LIBRARY ADD FUNCTIONALITY

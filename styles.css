@@ -21,8 +21,10 @@
 
 header {
   text-align: center;
-  margin: 1.5em;
-  font-size: 3em;
+  margin: 1em;
+  font-size: 4em;
+  font-weight: 600;
+  color: rgb(99, 83, 83);
 }
 
 .add-container {
@@ -50,8 +52,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 60vh;
   background-color: rgb(226, 207, 181);
+  border-style: solid;
 }
 
 .book {
@@ -93,7 +96,8 @@ header {
   cursor: pointer;
 }
 
-i {
+.fa,
+.fa-trash {
   background-color: dodgerblue;
   color: white;
 }
@@ -106,33 +110,31 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(81, 118, 189);
   z-index: 4;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
   top: 21%;
-  border-radius: 10px;
 }
 
 .form {
+  border-style: solid;
+  border-width: 2px;
   padding: 1em 6em 4em 6em;
   border-radius: 10px;
-  background-color: rgb(81, 118, 189);
-  box-shadow: 5px 5px 1px rgb(143, 143, 145);
+  background-color: rgb(205, 216, 233);
 }
 
 .form div {
   margin-left: -2.5em;
-  background-color: rgb(81, 118, 189);
+  background-color: rgb(205, 216, 233);
 }
 
 .form-title {
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 700;
   position: relative;
-  background-color: rgb(81, 118, 189);
-  color: white;
+  color: rgb(30, 30, 30);
 }
 
 .form-title::before {
@@ -142,14 +144,12 @@ i {
   bottom: 0;
   height: 3px;
   width: 30px;
-  background: rgb(130, 167, 214);
 }
 
 .book-details {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgb(81, 118, 189);
 }
 
 .input-box {
@@ -160,8 +160,8 @@ i {
 .details {
   font-weight: 700;
   display: block;
-  background-color: rgb(81, 118, 189);
-  color: rgb(252, 252, 252);
+  background-color: rgb(205, 216, 233);
+  color: rgb(30, 30, 30);
   letter-spacing: 1px;
 }
 
@@ -185,39 +185,38 @@ i {
 
 .input-box input:focus,
 .input-box input:valid {
-  border-color: rgb(105, 114, 233);
+  border-color: rgb(68, 70, 75);
 }
 
 .read-title {
   font-weight: 800;
   margin-left: -2.5em;
-  background-color: rgb(81, 118, 189);
-  color: white;
+  background-color: rgb(205, 216, 233);
+  color: rgb(30, 30, 30);
 }
 
 .category {
   display: flex;
   justify-content: space-between;
   margin: 14px 0;
-  background-color: rgb(81, 118, 189);
 }
 
 .read-submit {
-  background-color: rgb(81, 118, 189);
-  color: white;
-  font-weight: 500;
+  background-color: rgb(205, 216, 233);
+  color: rgb(30, 30, 30);
+  font-weight: 700;
 }
 
 .read-checkbox .category label {
   display: flex;
   align-items: center;
-  background-color: rgb(81, 118, 189);
+  background-color: rgb(205, 216, 233);
 }
 
 .read-checkbox .category .dot {
   height: 18px;
   width: 18px;
-  background: #d9d9d9;
+  background: #a8a4a4;
   border-radius: 50%;
   margin-right: 10px;
   border: 5px solid transparent;
@@ -226,8 +225,8 @@ i {
 
 #dot-1:checked ~ .category .one,
 #dot-2:checked ~ .category .two {
-  border-color: #d9d9d9;
-  background: rgb(81, 118, 189);
+  border-color: #ffffff;
+  background: rgb(104, 137, 187);
 }
 
 form input[type="radio"] {
@@ -241,7 +240,7 @@ form .submit-buttons {
   justify-content: space-between;
   margin-left: 4px;
   margin-top: 25px;
-  background-color: rgb(81, 118, 189);
+  background-color: rgb(205, 216, 233);
 }
 
 form .submit-buttons button {
@@ -256,4 +255,28 @@ form .submit-buttons button {
   border: none;
   background-color: white;
   cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  z-index: 10;
+}
+
+.fa-github {
+  color: black;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
 }

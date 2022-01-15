@@ -13,6 +13,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Library</title>
   </head>
   <body>
@@ -29,11 +34,23 @@
         <div class="book-details">
           <div class="input-box">
             <span class="details">Title</span>
-            <input id="bookTitle" type="text" placeholder="Enter the title" />
+            <input
+              id="bookTitle"
+              type="text"
+              placeholder="Enter the title"
+              type="search"
+              autocomplete="off"
+            />
           </div>
           <div class="input-box">
             <span class="details">Author</span>
-            <input id="bookAuthor" type="text" placeholder="Enter the author" />
+            <input
+              id="bookAuthor"
+              type="text"
+              placeholder="Enter the author"
+              type="search"
+              autocomplete="off"
+            />
           </div>
           <div class="input-box">
             <span class="details">Pages</span>
@@ -41,12 +58,26 @@
               id="bookPages"
               type="text"
               placeholder="Enter the number of pages"
+              type="search"
+              autocomplete="off"
             />
           </div>
         </div>
         <div class="read-checkbox">
-          <input type="radio" name="read-submit" id="dot-1" />
-          <input type="radio" name="read-submit" id="dot-2" />
+          <input
+            type="radio"
+            name="read-submit"
+            id="dot-1"
+            type="search"
+            autocomplete="off"
+          />
+          <input
+            type="radio"
+            name="read-submit"
+            id="dot-2"
+            type="search"
+            autocomplete="off"
+          />
           <span class="read-title">Have you read it?</span>
           <div class="category">
             <label for="dot-1">
@@ -65,6 +96,12 @@
         </div>
       </form>
     </div>
+    <footer class="footer">
+      <p>Copyright © 2021 Eric Tran</p>
+      <a href="https://github.com/traneric89" target="_blank">
+        <i class="fab fa-github"></i
+      ></a>
+    </footer>
   </body>
   <script src="script.js"></script>
 </html>
